@@ -8,6 +8,10 @@ class Animal {
     print('$name jocking ...');
   }
 
+  void shout() {
+    print('shouting ...');
+  }
+
   void sleep() {
     print('$name sleeping ...');
   }
@@ -27,9 +31,11 @@ class Dog extends Animal {
     print('$name taking a shower, cuteness level increased ${cuteness - 50}%');
   }
 
-  void showData() {
-    print('Dog\'s name: $name, age: $age, cuteness: $cuteness%');
-  }
+  @override
+  void shout() => print('auuouuu aouuouu ...');
+
+  @override
+  String toString() => 'Dog | name: $name, age: $age, cuteness: $cuteness%';
 }
 
 class Cat extends Animal {
@@ -39,9 +45,11 @@ class Cat extends Animal {
     return age <= 7;
   }
 
-  void showData() {
-    print('Cat\'s name: $name, age: $age');
-  }
+  @override
+  void shout() => print('miauuuu miauuu ...');
+
+  @override
+  String toString() => 'Cat | name: $name, age: $age';
 }
 
 void main() {
@@ -50,16 +58,18 @@ void main() {
   dog.takeShower();
   dog.eat();
   dog.jock();
+  dog.shout();
   dog.sleep();
-  dog.showData();
+  print(dog);
 
   print('=== === === ===');
 
   final cat = Cat(8, 'Xuxu');
   cat.eat();
-  cat.wantToJock() ? cat.jock() : cat.sleep();
-  cat.wantToJock() ? cat.sleep() : cat.showData();
-  cat.wantToJock() ? cat.showData() : null;
+  cat.wantToJock() ? cat.jock() : cat.shout();
+  cat.wantToJock() ? cat.shout() : cat.sleep();
+  cat.wantToJock() ? cat.sleep() : print(cat);
+  cat.wantToJock() ? print(cat) : null;
 
   print('=== === === ===');
 }
