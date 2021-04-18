@@ -37,8 +37,13 @@ void main() {
       if (_users.contains(oldname)) {
         final updatename = stdin.readLineSync();
         final userPosition = _users.indexOf(oldname);
-        _users.removeAt(userPosition);
-        _users.insert(userPosition, updatename);
+        if (userPosition == -1) {
+          print('user doesn\'t exist');
+        } else {
+          _users[userPosition] = updatename;
+        }
+        // _users.removeAt(userPosition);
+        // _users.insert(userPosition, updatename);
         print('=== Name updated ===');
       } else {
         print('username that you added doesn\'t exist');
