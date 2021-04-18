@@ -16,6 +16,7 @@ void main() {
     print('=== Welcome === \n');
     print(
         'What do you want? \n  -> Save/create new username, -> Read all users saved, -> Edit an existing user, -> Delete an existing user, -> Leave (finish the program \n \n');
+    // actually i could let users type number but i think like that is clearly
     final _textAction = stdin.readLineSync();
     if (_textAction == 'Save' ||
         _textAction == 'save' ||
